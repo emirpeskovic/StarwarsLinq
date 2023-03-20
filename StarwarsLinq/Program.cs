@@ -369,7 +369,7 @@ Console.WriteLine();
 
 // Opgave 12
 var opg12 = planets.Where(p => p.Name.ToLower().StartsWith('a') || p.Name.ToLower().EndsWith('s'));
-var opg12Rainforests = planets.Where(p => p.Terrain.Contains("rainforests"));
+var opg12Rainforests = planets.Where(p => p.Terrain != null && p.Terrain.Contains("rainforests"));
 var opg12Union = opg12.Union(opg12Rainforests);
 Console.WriteLine("Opgave 12:");
 foreach (var planet in opg12Union)
@@ -380,7 +380,7 @@ foreach (var planet in opg12Union)
 Console.WriteLine();
 
 // Opgave 13
-var opg13 = planets.Where(p => p.Climate.Contains("desert"));
+var opg13 = planets.Where(p => p.Terrain != null && p.Terrain.Contains("deserts"));
 Console.WriteLine("Opgave 13:");
 foreach (var planet in opg13)
 {
@@ -390,7 +390,7 @@ foreach (var planet in opg13)
 Console.WriteLine();
 
 // Opgave 14
-var opg14 = planets.Where(p => p.Climate.Contains("swamp")).OrderBy(p => p.RotationPeriod).ThenBy(p => p.Name);
+var opg14 = planets.Where(p => p.Terrain != null && p.Terrain.Contains("swamp")).OrderBy(p => p.RotationPeriod).ThenBy(p => p.Name);
 Console.WriteLine("Opgave 14:");
 foreach (var planet in opg14)
 {
